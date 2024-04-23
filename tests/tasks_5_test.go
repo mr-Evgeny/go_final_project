@@ -34,6 +34,9 @@ func getTasks(t *testing.T, search string) []map[string]string {
 
 	var m map[string][]map[string]string
 	err = json.Unmarshal(body, &m)
+	if err != nil {
+		fmt.Printf("%s\n", body)
+	}
 	assert.NoError(t, err)
 	return m["tasks"]
 }
